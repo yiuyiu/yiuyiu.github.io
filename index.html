@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)https://www.jamesliang.net/ -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta property="wb:webmaster" content="782ca7a94240274b" />
+
+    <meta
+      name="viewport"
+      content="width=device-width,height=device-height,maximum-scale=1.0"
+    />
+    <title>Crossing-dot Game 划点游戏</title>
+    <script src="./crossing/xixi.js"></script>
+    <link rel="stylesheet" href="./crossing/main.css" />
+    <link rel="stylesheet" href="./crossing/menu.css" />
+
+   
+  </head>
+
+  <body cz-shortcut-listen="true">
+    <script type="text/javascript">
+      function getCookie(c_name) {
+        if (document.cookie.length > 0) {
+          c_start = document.cookie.indexOf(c_name + "=");
+          if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) c_end = document.cookie.length;
+            {
+              var tempcookie = unescape(
+                document.cookie.substring(c_start, c_end)
+              );
+              //     alert("gettempcookie"+ tempcookie);
+              return tempcookie;
+            }
+          }
+        }
+        return "";
+      }
+
+      function setCookie(c_name, value, expiredays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + expiredays);
+        var tempcookie =
+          c_name +
+          "=" +
+          escape(value) +
+          (expiredays == null ? "" : ";expires=" + exdate.toGMTString());
+        // alert("settempcookie"+ tempcookie);
+        document.cookie = tempcookie;
+      }
+
+      function checkCookie() {
+        username = getCookie("username");
+        if (username != null && username != "") {
+          alert("Welcome again " + username + "!");
+        } else {
+          username = prompt("Please enter your name:", "");
+          if (username != null && username != "") {
+            setCookie("username", username, 365);
+          }
+        }
+      }
+
+      function about() {
+        alert("This game was greated by Wilson and James Liang in 2014");
+      }
+
+      
+
+      function menuClick(w, h, Mode, English, ToggleSeeklose, II) {
+        Dwidth = w;
+        Dheight = h;
+        AImode = Mode;
+        if (ToggleSeeklose) {
+          LastDotWin = 1 - LastDotWin;
+          if (LastDotWin)
+            alert(
+              "Now whoever crosses the last dot wins, 换个玩法, 划最后一点赢"
+            );
+          else
+            alert(
+              "回到正常状态，划最后一点输, Back to Normal, whoever crosses the last dot loses"
+            );
+        }
+
+        if (II > 1) {
+          II = getRandomX(II, 0);
+          nooftrials = nooftrials + 1;
+        } else II = 15;
+
+        if (0) {
+          origin = location.origin || "";
+          pathname = location.pathname;
+          location.href =
+            pathname +
+            "?Dwidth=" +
+            Dwidth +
+            "&Dheight=" +
+            Dheight +
+            "&AImode=" +
+            AImode +
+            "&LastDotWin=" +
+            LastDotWin +
+            "&Initx=" +
+            Initx;
+          //  location.href =  pathname;
+        }
+        restoreS(II);
+        resetCanvas();
+      }
+    </script>
+    <div class="cont">
+      <div class="caption" id="caption">
+        <!--img class="img" src="Reference/jp_logo_orange_cross.png"></img-->
+        <div class="text" id="text">
+          <h2>Crossing-dot Game 划点游戏</h2>
+          <p>
+            <cbig>
+              两个玩家交替，在横的，竖的，或者斜的一条线上的划去一点或者多点，谁划最后一点谁输。</cbig
+            >
+          </p>
+          <p>
+            Players take turns to cross any number of dots that are on a
+            horizontal, vertical, or diagonal line, Whoever crosses the last dot
+            loses!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <ul id="nav">
+      <li>
+        <div
+          class="dropdown_button"
+          onclick="menuClick(Dwidth, Dheight, AImode,0, 0, Initx)"
+        >
+          <a>太难！换个试</a>
+        </div>
+      </li>
+
+      <li>
+        <div
+          class="dropdown_button"
+          onclick="menuClick(Dwidth, Dheight,1,0, 0,Initx)"
+        >
+          <a>人机对弈 </a>
+        </div>
+      </li>
+
+      <li>
+        <div
+          class="dropdown_button"
+          onclick="menuClick(Dwidth, Dheight,2,0, 0,Initx)"
+        >
+          <a> 两人对弈 </a>
+        </div>
+      </li>
+
+      <!--
+         <li> 
+                <div class="dropdown_button" class="menu_button" onClick="menuClick(Dwidth, Dheight,AImode,0, 1)">
+          <a>Play to Lose?  改求败模式 </a> </div> </li>
+       
+-->
+      <li>
+        <div class="dropdown_button" onclick="about()">
+          <a>About </a>
+        </div>
+      </li>
+    </ul>
+
+    <br /><br />
+    <ul id="nav">
+      <li>
+        <div class="dropdown_button" onclick="menuClick(3, 2, AImode,0, 0, 1)">
+          <a>重试3*2</a>
+        </div>
+      </li>
+
+      <li>
+        <div class="dropdown_button" onclick="menuClick(3, 3, AImode,0, 0,1)">
+          <a>重试3*3</a>
+        </div>
+      </li>
+
+      <li>
+        <div class="dropdown_button" onclick="menuClick(4, 3, AImode,0, 0,1)">
+          <a>重试4*3</a>
+        </div>
+      </li>
+
+      <li>
+        <div class="dropdown_button" onclick="menuClick(4, 4, AImode,0, 0,1)">
+          <a>重试4*4</a>
+        </div>
+      </li>
+    </ul>
+
+    <canvas id="solid" width="569" height="393"></canvas>
+    <script src="./crossing/zepto.js"></script>
+    <script src="./crossing/wd.js"></script>
+    <script src="./crossing/main.js"></script>
+
+  </body>
+</html>

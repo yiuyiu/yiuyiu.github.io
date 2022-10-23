@@ -1,0 +1,92 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent
+}
+cbig {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 130%;
+    vertical-align: baseline;
+    background: transparent
+}
+body {
+    line-height: 1
+}
+ol, ul {
+    list-style: none
+}
+blockquote, q {
+    quotes: none
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none
+}
+body, button, input, select, textarea {
+    font: 14px MICROSOFT YaHei, Helvetica, Tahoma, sans-serif
+}
+input, select, textarea {
+    font-size: 100%
+}
+:focus {
+    outline: 0
+}
+ins {
+    text-decoration: none
+}
+del {
+    text-decoration: line-through
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+section, article, aside, header, footer, nav, dialog, figure {
+    display: block
+}
+fieldset, img {
+    border: 0
+}
+abbr, acronym {
+    border: 0;
+    font-variant: normal
+}
+del {
+    text-decoration: line-through
+}
+a:link, a:visited {
+    text-decoration: none
+}
+a:hover, a:active {
+    text-decoration: none
+}
+body {
+    background: #f8f8f8;
+    text-align: center;
+}
+.cont {
+    position: relative;
+    width: 100%;
+    margin: 10px auto;
+}
+.text {
+    /*float: right;*/
+    margin: 0 10px;
+}
+.text h2 {
+    font-size: 16px;
+}
+.text p {
+    word-wrap: break-word;
+}
+.img {
+    margin: 26px 2px;
+    width: 96px;
+}
